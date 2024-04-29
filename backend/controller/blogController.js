@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Blogpost } from "../models/blogmodel";
+import { Blogpost } from "../models/blogmodel.js";
 
 export const getAllPost = async (req, res) => {
   try {
@@ -49,4 +49,41 @@ export const addBlogPost = async (req, res) => {
   }
 };
 
+//editing blogpost
 
+export const editBlog = async (req, res) => {
+  try {
+    if (!req.body.title || !req.body.content) {
+      return res.status(400).send({
+        message: "Send all fields",
+      });
+    }
+
+    const { id } = req.params;
+    const result = await Blogpost.findByIdAndUpdate(id, req.body);
+
+    if (!result) {
+      return res.status(404).json({ message: "Couldnot find the Blog Id" });
+    }
+
+    return res.status(200).send({ message: "Successfully updated blog post" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+//deleting th blog post
+export const deleteblog = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const result = await Blogpost.findByIdAndDelete(id);
+
+    if (!result) {
+      return res.status(404).json({ message: "Error deleting the blog" });
+    }
+    return res.status(200).send({ message: "Successfully deleted blog" });
+  } catch (error) {
+    console.log(error);
+  }
+};

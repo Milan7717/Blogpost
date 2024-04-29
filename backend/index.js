@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
+import blogRoute from "./routes/blogRoute.js"
+
 const app = express();
 
 //middleware
@@ -20,6 +22,11 @@ app.get("/", (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`App is listening to port ${process.env.PORT}`);
 });
+
+
+//for api route
+app.use("/blog",blogRoute)
+
 
 //mongodb connection
 mongoose
