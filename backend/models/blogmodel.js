@@ -1,4 +1,4 @@
-import { Timestamp } from "mongodb";
+
 import mongoose from "mongoose";
 
 const blogModelSchema = new mongoose.Schema(
@@ -8,7 +8,7 @@ const blogModelSchema = new mongoose.Schema(
       required: true,
     },
     content: {
-      type: mongoose.Schema.Types.Mixed,
+      type: String,
       required: true,
     },
   },
