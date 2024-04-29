@@ -43,6 +43,7 @@ const Editblog = () => {
 
   return (
     <>
+    <Navbar />
     <div className="flex justify-center items-center h-[100vh]">
       <form className="w-[60%] border-2 border-red-500 rounded-lg p-4 flex flex-col">
         <h1 className="my-4 text-center text-2xl">Edit Blog</h1>

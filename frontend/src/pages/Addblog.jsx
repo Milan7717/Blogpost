@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 const Addblog = () => {
   const [title, setTitle] = useState("");
@@ -27,6 +28,7 @@ const Addblog = () => {
 
   return (
     <>
+    <Navbar />
       <div className="flex justify-center items-center min-h-screen">
         <form className="w-[60%] border-2 border-red-500 rounded-lg p-4 flex flex-col">
           <h1 className="my-4 text-center text-2xl">Add Blog</h1>
