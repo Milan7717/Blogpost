@@ -9,7 +9,7 @@ const Blogcard = (props) => {
      <div className="flex flex-col gap-10">
       <p className="text-4xl">{props.title}</p>
 
-      <p>{props.content}</p>
+      <p className="">{props.content}</p>
       </div>
       <div className="flex justify-center gap-x-6 my-4" >
         <Link to={`/editblog/${props.id}`}>

@@ -42,19 +42,8 @@ const Addblog = () => {
               className="bg-transparent w-[65%] border-[1px] border-gray-500 rounded-xl p-2"
             />
           </div>
+          
           <div className="my-4 flex">
-            <label className="mx-2 w-[35%]">Title :</label>
-            <input
-             name="content"
-             type="text"
-             value={content}
-             onChange={(e) => setContent(e.target.value)}
-              placeholder="Title of Blog"
-              required
-              className="bg-transparent w-[65%] border-[1px] border-gray-500 rounded-xl p-2"
-            />
-          </div>
-          {/* <div className="my-4 flex">
             <label className="mx-2 w-[35%]">Content :</label>
             <textarea
               required
@@ -68,7 +57,7 @@ const Addblog = () => {
               cols="50"
               rows="10"
             ></textarea>
-          </div> */}
+          </div>
           <div className="flex items-center justify-center">
             <button
               onClick={handleSubmit}
