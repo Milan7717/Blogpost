@@ -1,12 +1,37 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const SingleBlog = (props) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [data, setData] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/blog/${id}`)
+      .then((data) => {
+        setData(data.data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsError(true);
+      });
+  }, [id]);
   return (
-    <div>
-      <h1>{props.title}</h1>
-      <h1>{props.content}</h1>
-    </div>
-  )
-}
+    <>
+      {isLoading ? (
+        "Loading..."
+      ) : (
+        <>
+          {console.log(data)}
+          <p>title : {data?.title}</p>
+          <p>Content : {data?.content}</p>
+          
+        </>
+      )}
+    </>
+  );
+};
 
-export default SingleBlog
+export default SingleBlog;
