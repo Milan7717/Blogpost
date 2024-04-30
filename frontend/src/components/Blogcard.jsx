@@ -11,8 +11,8 @@ const Blogcard = (props) => {
   const formattedDate = format(time, "MMM dd, yyyy");
   return (
     <div className="border-[1px] rounded-xl border-gray-[500]  w-full flex flex-col gap-4 justify-between overflow-hidden p-4">
-      <div className="flex flex-col gap-10  min-h-[25vh]">
-        <p className="text-4xl capitalize text-center">{title}</p>
+      <div className="flex flex-col gap-6  min-h-[25vh]">
+        <p className="text-2xl capitalize text-center">{title}</p>
 
         {/* Apply line-clamp class to truncate content after 3 lines */}
         <p className="line-clamp-3">{content}</p>

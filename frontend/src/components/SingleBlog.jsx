@@ -24,9 +24,10 @@ const SingleBlog = (props) => {
         "Loading..."
       ) : (
         <>
-          {console.log(data)}
-          <p>title : {data?.title}</p>
-          <p>Content : {data?.content}</p>
+          <div className="min-h-screen md:mx-32 lg:mx-36 sm:mx-24 mx-8 pt-24 text-lg flex flex-col gap-10">
+          <p className="text-center text-4xl capitalize">{data?.title}</p>
+          <p>{data?.content}</p>
+          </div>
           
         </>
       )}
