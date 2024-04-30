@@ -1,10 +1,11 @@
 import express from "express";
-import cors from "cors"
+import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-import blogRoute from "./routes/blogRoute.js"
+import blogRoute from "./routes/blogRoute.js";
+import { authRoute } from "./routes/authRoute.js";
 
 const app = express();
 
@@ -15,18 +16,17 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-    console.log(req);
-    return res.status(234).send("Welcome to the home page");
+  console.log(req);
+  return res.status(234).send("Welcome to the home page");
 });
 
 app.listen(process.env.PORT, () => {
   console.log(`App is listening to port ${process.env.PORT}`);
 });
 
-
 //for api route
-app.use("/blog",blogRoute)
-
+app.use("/blog", blogRoute);
+app.use("/auth", authRoute);
 
 //mongodb connection
 mongoose
